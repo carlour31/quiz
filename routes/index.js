@@ -47,8 +47,7 @@ router.get('/author', function (req, res, next) {
     res.render('author');
 });
 
-<<<<<<< HEAD
-=======
+
 // Pagina de ayuda
 
 router.get('/help', function(req, res, next) {
@@ -167,6 +166,8 @@ router.get('/quizzes/randomnomore', quizController.randomcheck);
 router.get('/help', function (req, res, next) {
     res.render('help');
 });
+
+router.post('/quizzes/:quizId(\\d+)/tips', tipController.create);
 
 
 module.exports = router;

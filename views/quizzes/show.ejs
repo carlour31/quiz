@@ -1,6 +1,6 @@
 
 <div class="right">
-    <small> (by <%= quiz.Author ? quiz.Author.username : "Anómino" %>) </small>
+    <small> (by <%= quiz.Author ? quiz.Author.username : "Anónimo" %>) </small>
 </div>
 
 <h1>
@@ -26,6 +26,7 @@
 <% var tips = quiz.Tips; %>
 <% var quizId = quiz.id; %>
 <% var quizAuthorId = quiz.AuthorId; %>
+<% var tipAuthorId = tips.AuthorId; %>
 
 <% include ../tips/index %>
 
