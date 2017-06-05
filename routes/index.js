@@ -15,7 +15,7 @@ router.get('/author', function(req, res, next) {
 });
 
 // Pagina de ayuda
-<<<<<<< HEAD
+
 router.get('/help', function(req, res, next) {
     res.render('help');
 });
@@ -48,10 +48,9 @@ router.get('/quizzes/randomcheck/:quizId(\\d+)', quizController.randomcheck);
 router.get('/quizzes/randomnomore', quizController.randomcheck);
 
 
-=======
 router.get('/help', function (req, res, next) {
     res.render('help');
 });
 
->>>>>>> practica51
+
 module.exports = router;
