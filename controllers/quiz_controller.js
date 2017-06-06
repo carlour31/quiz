@@ -250,13 +250,13 @@ exports.check = function (req, res, next) {
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
 exports.randomcheck = function (req, res, next) {
 req.session.jugadas = req.session.jugadas || [];
+var score = req.session.jugadas.length;
     var answer = req.query.answer || "";
    
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
   if(answer.toLowerCase().trim() !== req.quiz.answer.toLowerCase().trim()){
 	req.session.jugadas=[];
 	}
- var score = req.session.jugadas.length;
  if(score === req.session.todos.length){
 	req.session.jugadas=[];
 	res.render('quizzes/randomnomore', {   
