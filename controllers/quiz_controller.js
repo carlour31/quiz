@@ -250,7 +250,6 @@ exports.check = function (req, res, next) {
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
 exports.randomcheck = function (req, res, next) {
 	
-	∑
    	var answer = req.query.answer || "";
    
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
