@@ -263,9 +263,8 @@ exports.randomcheck = function (req, res, next) {
 	score: score
     });
 }else{
-	score = req.session.jugadas.length || 0;
     	res.render('quizzes/randomresult', {   
-		score: score,	
+		score: 0,	
 		quiz: req.quiz,
         	result: result,
         	answer: answer
