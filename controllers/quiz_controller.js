@@ -220,8 +220,9 @@ exports.randomcheck = function (req, res, next) {
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
   if(answer.toLowerCase().trim() !== req.quiz.answer.toLowerCase().trim()){
 	req.session.jugadas=[];
-	}
- var score = req.session.jugadas.length || 1;
+	   var score = 0;
+	} else{
+ var score = req.session.jugadas.length || 1;}
  if(score === req.session.todos.length){
 	req.session.jugadas=[];
 	res.render('quizzes/randomnomore', {   
