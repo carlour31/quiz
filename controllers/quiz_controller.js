@@ -249,9 +249,16 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
 exports.randomcheck = function (req, res, next) {
+	req.session.jugadas = req.session.jugadas || [];
+	models.Quiz.findAll()
+	.then(function(quizzes){
+		req.session.todos = quizzes|| [];})
+	.catch(function(error){next(error);
+	});
 	
    	var answer = req.query.answer || "";
    	var score = 0;
+	
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
   if(answer.toLowerCase().trim() !== req.quiz.answer.toLowerCase().trim()){
 	req.session.jugadas=[];
@@ -264,7 +271,7 @@ exports.randomcheck = function (req, res, next) {
     });
 }else{
     	res.render('quizzes/randomresult', {   
-		score: 0,	
+		score: score,	
 		quiz: req.quiz,
         	result: result,
         	answer: answer
