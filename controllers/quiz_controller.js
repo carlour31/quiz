@@ -249,14 +249,9 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
 exports.randomcheck = function (req, res, next) {
-	req.session.jugadas = req.session.jugadas || [];
+	
 	var score = req.session.jugadas.length;
    	var answer = req.query.answer || "";
-	models.Quiz.findAll()
-	.then(function(quizzes){
-		req.session.todos = quizzes;})
-	.catch(function(error){next(error);
-	});
    
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
   if(answer.toLowerCase().trim() !== req.quiz.answer.toLowerCase().trim()){
