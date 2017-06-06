@@ -9,13 +9,13 @@
         <% var isTipAuthor = session.user && tip.Author && tip.Author.id === session.user.id; %>
 
 
-        <% if (accepted || isAdmin || isQuizAuthor || isQuizAuthor) { %>
+        <% if (accepted || isAdmin || isQuizAuthor || isTipAuthor) { %>
 
             <li>
                 <%= tip.text %>
 		<span id="autor">(by <%= tip.Author ? tip.Author.username : "Anónimo" %>)</span>
 
-                <% if (!accepted && (isAdmin || isTipAuthor)) { %>
+                <% if (!accepted && (isAdmin || isQuizAuthor)) { %>
 
                       <a href="/quizzes/<%= quizId %>/tips/<%= tip.id %>/accept?_method=PUT">
                           <button>Aceptar</button>
