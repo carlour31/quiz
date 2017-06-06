@@ -249,7 +249,7 @@ exports.check = function (req, res, next) {
 
 // GET /quizzes/randomcheck/:quizId?answer=respuesta
 exports.randomcheck = function (req, res, next) {
-
+req.session.jugadas = req.session.jugadas || [];
     var answer = req.query.answer || "";
    
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
