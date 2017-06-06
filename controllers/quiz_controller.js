@@ -263,11 +263,12 @@ exports.randomcheck = function (req, res, next) {
 	score: score
     });
 }else{
-    res.render('quizzes/randomresult', {   
-	score: score,	
-	quiz: req.quiz,
-        result: result,
-        answer: answer
+	score = req.session.jugadas.length || 0;
+    	res.render('quizzes/randomresult', {   
+		score: score,	
+		quiz: req.quiz,
+        	result: result,
+        	answer: answer
     });
 }
 };
