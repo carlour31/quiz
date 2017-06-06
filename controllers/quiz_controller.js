@@ -254,7 +254,7 @@ exports.randomcheck = function (req, res, next) {
 	req.session.todos = req.session.todos || [];
 	
     var answer = req.query.answer || "";
-   var nQuizzes = req.session.todos.length;
+   var nQuizzes = req.session.todos.length || 9;
 	
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
   if(answer.toLowerCase().trim() !== req.quiz.answer.toLowerCase().trim()){
