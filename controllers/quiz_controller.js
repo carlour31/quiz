@@ -258,8 +258,8 @@ exports.randomcheck = function (req, res, next) {
 	
     var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
   if(answer.toLowerCase().trim() !== req.quiz.answer.toLowerCase().trim()){
-	req.session.jugadas=[];
-	   var score = 0;
+	var score = req.session.jugadas || 0;
+	  req.session.jugadas=[];
 	} else{
  var score = req.session.jugadas.length || 1;}
  if(score === nQuizzes){
